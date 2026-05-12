@@ -1,0 +1,368 @@
+/* IndiGuide — Tactical Utility PWA */
+
+.app-shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #050505;
+  color: #F4F4F5;
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Heading font */
+.font-heading {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Body font */
+.font-body {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400;
+}
+
+/* Category card with image */
+.category-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.category-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.2) 100%);
+  z-index: 1;
+}
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.category-card:active img {
+  transform: scale(1.05);
+}
+
+.category-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  z-index: 2;
+}
+
+/* Scenario list item */
+.scenario-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 16px;
+  border-bottom: 1px solid #1E1E20;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.15s ease;
+}
+
+.scenario-row:active {
+  background-color: #1E1E20;
+}
+
+/* Normalcy badge */
+.normalcy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Archivo', sans-serif;
+}
+
+.normalcy-normal {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.normalcy-sometimes {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.normalcy-danger {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Section cards on scenario page */
+.guidance-section {
+  background-color: #121212;
+  border: 1px solid #27272A;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.guidance-section-danger {
+  background-color: #121212;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.phrase-box {
+  background-color: #121212;
+  border: 2px dashed #27272A;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.reassurance-box {
+  background-color: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+/* Header */
+.back-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(5, 5, 5, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1E1E20;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #27272A;
+  background: transparent;
+  color: #F4F4F5;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.15s ease;
+}
+
+.back-btn:active {
+  background-color: #1E1E20;
+}
+
+/* Numbered steps */
+.step-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 10px 0;
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #F59E0B;
+  color: #000000;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Archivo', sans-serif;
+}
+
+/* Stagger animation */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeSlideUp 0.35s ease forwards;
+  opacity: 0;
+}
+
+/* Install banner */
+.install-banner {
+  background-color: #1E1E20;
+  border: 1px solid #27272A;
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.install-banner:active {
+  background-color: #27272A;
+}
+
+/* Copy feedback */
+.copy-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #F59E0B;
+  color: #000;
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 100;
+  animation: fadeSlideUp 0.25s ease forwards;
+}
+
+/* Safe area padding */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Feedback card */
+.feedback-card {
+  background-color: #0A0A0A;
+  border: 1px solid #1E1E20;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 4px;
+}
+
+.feedback-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  min-height: 52px;
+  border-radius: 8px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.feedback-btn-yes {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #10B981;
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.feedback-btn-yes:active {
+  background-color: rgba(16, 185, 129, 0.22);
+}
+
+.feedback-btn-no {
+  background-color: rgba(161, 161, 170, 0.08);
+  color: #A1A1AA;
+  border-color: rgba(161, 161, 170, 0.2);
+}
+
+.feedback-btn-no:active {
+  background-color: rgba(161, 161, 170, 0.16);
+}
+
+.feedback-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 100px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #A1A1AA;
+  background-color: #121212;
+  border: 1px solid #27272A;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.feedback-tag:active {
+  background-color: #1E1E20;
+}
+
+.feedback-tag-active {
+  background-color: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #F59E0B;
+}
+
+.feedback-textarea {
+  width: 100%;
+  background-color: #121212;
+  border: 1px solid #27272A;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 14px;
+  color: #F4F4F5;
+  resize: none;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.feedback-textarea::placeholder {
+  color: #52525B;
+}
+
+.feedback-textarea:focus {
+  border-color: #3F3F46;
+}
+
+.feedback-submit-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  background-color: #F59E0B;
+  color: #000;
+  font-family: 'Archivo', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.15s ease;
+}
+
+.feedback-submit-btn:active {
+  opacity: 0.8;
+}
